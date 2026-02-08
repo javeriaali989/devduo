@@ -398,3 +398,96 @@ if ('IntersectionObserver' in window) {
 
 console.log('%c🚀 DevDuo Website Loaded Successfully!', 'color: #667eea; font-size: 16px; font-weight: bold;');
 console.log('%cBuilt with ❤️ using HTML, CSS, and JavaScript', 'color: #764ba2; font-size: 12px;');
+
+// Hero Slider Logic
+const initSlider = () => {
+    const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.querySelector('.next-slide');
+    const prevBtn = document.querySelector('.prev-slide');
+    const dotsContainer = document.querySelector('.slider-dots');
+
+    if (!slides.length) return;
+
+    let currentSlide = 0;
+    const slideInterval = 6000; // 6 seconds
+    let slideTimer;
+
+    // Create dots if container exists
+    if (dotsContainer) {
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    const dots = document.querySelectorAll('.slider-dot');
+
+    const goToSlide = (index) => {
+        // Remove active class from current
+        slides[currentSlide].classList.remove('active');
+        if (dots.length > currentSlide) dots[currentSlide].classList.remove('active');
+
+        // Calculate new index
+        currentSlide = (index + slides.length) % slides.length;
+
+        // Add active class to new
+        slides[currentSlide].classList.add('active');
+        if (dots.length > currentSlide) dots[currentSlide].classList.add('active');
+
+        resetTimer();
+    };
+
+    const nextSlide = () => {
+        goToSlide(currentSlide + 1);
+    };
+
+    const prevSlide = () => {
+        goToSlide(currentSlide - 1);
+    };
+
+    const resetTimer = () => {
+        clearInterval(slideTimer);
+        slideTimer = setInterval(nextSlide, slideInterval);
+    };
+
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        nextSlide();
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        prevSlide();
+    });
+
+    // Touch support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const slider = document.querySelector('.hero-slider');
+
+    if (slider) {
+        slider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        slider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+    }
+
+    const handleSwipe = () => {
+        if (touchEndX < touchStartX - 50) nextSlide();
+        if (touchEndX > touchStartX + 50) prevSlide();
+    };
+
+    // Start auto-play
+    resetTimer();
+};
+
+// Initialize slider when DOM is loaded
+document.addEventListener('DOMContentLoaded', initSlider);

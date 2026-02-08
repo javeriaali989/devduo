@@ -42,30 +42,137 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-background">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-
-                <h1 class="hero-title">
-                    Build Your Digital
-                    <span class="gradient-text">Future</span>
-                    With Us
-                </h1>
-                <p class="hero-description">
-                    We craft exceptional digital experiences through cutting-edge web development,
-                    mobile applications, ecommerce platforms, and intelligent chatbot solutions.
-                </p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary">Start Your Project</button>
-                    <button class="btn btn-secondary">View Our Work</button>
+        <div class="hero-slider">
+            <!-- Slide 1: Intro -->
+            <div class="slide active">
+                <div class="hero-background">
+                    <div class="gradient-orb orb-1"></div>
+                    <div class="gradient-orb orb-2"></div>
+                    <div class="gradient-orb orb-3"></div>
                 </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Build Your Digital
+                            <span class="gradient-text">Future</span>
+                            With Us
+                        </h1>
+                        <p class="hero-description">
+                            We craft exceptional digital experiences through cutting-edge web development,
+                            mobile applications, ecommerce platforms, and intelligent chatbot solutions.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary"
+                                onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">Start
+                                Your Project</button>
+                            <button class="btn btn-secondary"
+                                onclick="document.querySelector('#portfolio').scrollIntoView({behavior: 'smooth'})">View
+                                Our Work</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Slide 2: E-Commerce -->
+            <div class="slide">
+                <div class="hero-background">
+                    <div class="gradient-orb orb-4"></div>
+                    <div class="gradient-orb orb-7"></div>
+                </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Scale Your
+                            <span class="gradient-text">E-Commerce</span>
+                        </h1>
+                        <p class="hero-description">
+                            Transform your online store with high-performance, secure, and user-friendly
+                            shopping experiences that drive sales and customer loyalty.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary"
+                                onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">Build
+                                Store</button>
+                            <button class="btn btn-secondary"
+                                onclick="document.querySelector('#portfolio').scrollIntoView({behavior: 'smooth'})">View
+                                Shops</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Web Apps -->
+            <div class="slide">
+                <div class="hero-background">
+                    <div class="gradient-orb orb-5"></div>
+                    <div class="gradient-orb orb-8"></div>
+                </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Powerful
+                            <span class="gradient-text">Web Apps</span>
+                        </h1>
+                        <p class="hero-description">
+                            Custom web applications built with modern frameworks like React and Next.js.
+                            Fast, responsive, and scalable solutions for complex business needs.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary"
+                                onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">Develop
+                                App</button>
+                            <button class="btn btn-secondary"
+                                onclick="document.querySelector('#portfolio').scrollIntoView({behavior: 'smooth'})">Case
+                                Studies</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: AI Solutions -->
+            <div class="slide">
+                <div class="hero-background">
+                    <div class="gradient-orb orb-6"></div>
+                    <div class="gradient-orb orb-1"></div>
+                </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Next Gen
+                            <span class="gradient-text">AI Solutions</span>
+                        </h1>
+                        <p class="hero-description">
+                            Automate and innovate with custom AI chatbots and machine learning solutions
+                            tailored to your business needs.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary"
+                                onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">Integrate
+                                AI</button>
+                            <button class="btn btn-secondary"
+                                onclick="document.querySelector('#services').scrollIntoView({behavior: 'smooth'})">Learn
+                                More</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="slider-controls">
+            <button class="prev-slide" aria-label="Previous Slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+            <button class="next-slide" aria-label="Next Slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="slider-dots"></div>
+
         <div class="scroll-indicator">
             <div class="mouse">
                 <div class="wheel"></div>
@@ -158,6 +265,12 @@
             <div class="portfolio-grid">
                 <div class="portfolio-item">
                     <div class="portfolio-image">
+                        <div class="portfolio-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
                         <div class="portfolio-overlay">
                             <h3>FinTech Dashboard</h3>
                             <p>Web Application</p>
@@ -165,27 +278,39 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="portfolio-image portfolio-image-3">
-                <div class="portfolio-overlay">
-                    <h3>Fashion E-Store</h3>
-                    <p>E-Commerce Platform</p>
-                    <button class="view-project-btn">View Project →</button>
+                <div class="portfolio-item">
+                    <div class="portfolio-image portfolio-image-3">
+                        <div class="portfolio-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h3>Fashion E-Store</h3>
+                            <p>E-Commerce Platform</p>
+                            <button class="view-project-btn">View Project →</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image portfolio-image-4">
+                        <div class="portfolio-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <h3>Customer Support Bot</h3>
+                            <p>AI Chatbot</p>
+                            <button class="view-project-btn">View Project →</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="portfolio-image portfolio-image-4">
-                <div class="portfolio-overlay">
-                    <h3>Customer Support Bot</h3>
-                    <p>AI Chatbot</p>
-                    <button class="view-project-btn">View Project →</button>
-                </div>
-            </div>
-        </div>
-        </div>
         </div>
     </section>
 
@@ -276,12 +401,12 @@
                             </div>
                             <div>
                                 <h4>Phone</h4>
-                                <p>+92 341 8211933</p>
+                                <p>+92 313 1027552</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpqjzgdk" method="POST">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpqjzgdki" method="POST">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
